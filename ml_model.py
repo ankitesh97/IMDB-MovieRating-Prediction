@@ -54,7 +54,7 @@ def Knn():
 def LogRegression():
     X,y = _make_in_format(FILENAME)
     X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.3,random_state=1)
-    model = LogisticRegression(solver='newton-cg',multi_class='ovr',max_iter=200)
+    model = LogisticRegression(solver='newton-cg',multi_class='ovr',max_iter=200,penalty='l2')
     model.fit(X_train,y_train)
     predictions = model.predict(X_test)
     _pickle_it(model,"LogRegression_thre1")
